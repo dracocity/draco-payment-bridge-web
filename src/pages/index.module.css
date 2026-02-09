@@ -1,23 +1,476 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800&family=Sora:wght@600;700&display=swap');
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.page {
+  --bg: #f4f8ff;
+  --surface: #ffffff;
+  --surface-soft: #eef4ff;
+  --stroke: #d7e4ff;
+  --text: #10213f;
+  --muted: #5a6d92;
+  --primary: #1959ff;
+  --primary-dark: #0f43cb;
+  --accent: #11a5ff;
+  --announcement-bg: #f8fbff;
+  --announcement-text: #355189;
+  --hero-copy-bg: linear-gradient(170deg, #ffffff, #f4f8ff);
+  --hero-copy-shadow: 0 16px 44px rgba(35, 72, 165, 0.09);
+  --secondary-btn-text: #1f3c78;
+  --secondary-btn-border: #bed3ff;
+  --secondary-btn-bg: #f8fbff;
+  --secondary-btn-hover-text: #163873;
+  --secondary-btn-hover-bg: #ecf4ff;
+  --hero-panel-bg: linear-gradient(180deg, #0f2244, #142c59);
+  --hero-panel-text: #d7e7ff;
+  --hero-panel-label: #98b7ff;
+  --hero-panel-row-border: rgba(168, 196, 255, 0.2);
+  --hero-panel-row-bg: rgba(255, 255, 255, 0.03);
+  --hero-panel-row-muted: #a8bfe9;
+  --hero-panel-row-text: #ffffff;
+  --hero-panel-foot: #a8c2ed;
+  --hero-panel-shadow: 0 16px 38px rgba(15, 34, 68, 0.32);
+  --section-shadow: 0 12px 32px rgba(30, 66, 148, 0.08);
+  --eyebrow-text: #4d67a0;
+  --pill-bg: #f4f8ff;
+  --pill-border: #dce8ff;
+  --pill-text: #354f83;
+  --card-border: #dce8ff;
+  --card-bg: #fbfdff;
+  --stat-bg: #f9fbff;
+  --dev-bg: linear-gradient(180deg, #ffffff, #f7faff);
+  --code-border: #d9e6ff;
+  --code-bg: #f5f9ff;
+  --code-text: #244175;
+  --bottom-border: #c6d9ff;
+  --bottom-bg: linear-gradient(120deg, #ebf3ff, #f8fbff);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(25, 89, 255, 0.09), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(17, 165, 255, 0.08), transparent 36%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Public Sans', 'Segoe UI', sans-serif;
+  padding: 1.25rem 1.2rem 4.4rem;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+:global([data-theme='dark']) .page {
+  --bg: #081325;
+  --surface: #0e1c34;
+  --surface-soft: #13233e;
+  --stroke: #243a62;
+  --text: #e6efff;
+  --muted: #9cb2d6;
+  --primary: #65a0ff;
+  --primary-dark: #4a88ec;
+  --accent: #5ec8ff;
+  --announcement-bg: #0f203b;
+  --announcement-text: #a8c6ff;
+  --hero-copy-bg: linear-gradient(170deg, #0f1f39, #112748);
+  --hero-copy-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+  --secondary-btn-text: #c7d9ff;
+  --secondary-btn-border: #395887;
+  --secondary-btn-bg: #152a4b;
+  --secondary-btn-hover-text: #d9e6ff;
+  --secondary-btn-hover-bg: #1b345c;
+  --hero-panel-bg: linear-gradient(180deg, #0b1830, #101f3b);
+  --hero-panel-text: #deebff;
+  --hero-panel-label: #8db0ff;
+  --hero-panel-row-border: rgba(121, 154, 214, 0.3);
+  --hero-panel-row-bg: rgba(255, 255, 255, 0.02);
+  --hero-panel-row-muted: #9cb9e6;
+  --hero-panel-row-text: #ecf3ff;
+  --hero-panel-foot: #a4bfe8;
+  --hero-panel-shadow: 0 16px 38px rgba(0, 0, 0, 0.42);
+  --section-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  --eyebrow-text: #93aee0;
+  --pill-bg: #132746;
+  --pill-border: #2b446f;
+  --pill-text: #c5d9ff;
+  --card-border: #2b446f;
+  --card-bg: #10213b;
+  --stat-bg: #132746;
+  --dev-bg: linear-gradient(180deg, #10213b, #112747);
+  --code-border: #365684;
+  --code-bg: #0c1c34;
+  --code-text: #d4e5ff;
+  --bottom-border: #2c4875;
+  --bottom-bg: linear-gradient(120deg, #102440, #112a4c);
+}
+
+.announcement,
+.heroSection,
+.trustSection,
+.useCaseSection,
+.platformSection,
+.developerSection,
+.bottomCta {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.announcement {
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  background: var(--announcement-bg);
+  color: var(--announcement-text);
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.52rem 0.95rem;
+}
+
+.heroSection {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.heroCopy {
+  border-radius: 24px;
+  background: var(--hero-copy-bg);
+  border: 1px solid var(--stroke);
+  box-shadow: var(--hero-copy-shadow);
+  padding: 2.6rem 2.35rem;
+  animation: fadeInUp 0.45s ease both;
+}
+
+.kicker {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.heroTitle {
+  margin: 0.8rem 0 0;
+  max-width: 16ch;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heroSubtitle {
+  margin: 1rem 0 0;
+  max-width: 54ch;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.7rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  border-radius: 999px;
+  padding: 0.74rem 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: linear-gradient(120deg, var(--primary), #2a7dff);
+  box-shadow: 0 10px 24px rgba(25, 89, 255, 0.28);
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(120deg, var(--primary-dark), #226cf4);
+}
+
+.secondaryButton {
+  color: var(--secondary-btn-text);
+  border: 1px solid var(--secondary-btn-border);
+  background: var(--secondary-btn-bg);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-1px);
+  color: var(--secondary-btn-hover-text);
+  text-decoration: none;
+  background: var(--secondary-btn-hover-bg);
+}
+
+.heroPanel {
+  border-radius: 24px;
+  border: 1px solid var(--stroke);
+  background: var(--hero-panel-bg);
+  color: var(--hero-panel-text);
+  padding: 1.3rem 1.15rem;
+  box-shadow: var(--hero-panel-shadow);
+  animation: fadeInUp 0.6s ease both;
+}
+
+.panelLabel {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hero-panel-label);
+  font-weight: 700;
+}
+
+.panelRow {
+  margin-top: 0.65rem;
+  border: 1px solid var(--hero-panel-row-border);
+  border-radius: 12px;
+  background: var(--hero-panel-row-bg);
+  padding: 0.75rem 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+}
+
+.panelRow span {
+  color: var(--hero-panel-row-muted);
+}
+
+.panelRow strong {
+  color: var(--hero-panel-row-text);
+}
+
+.statusOk {
+  color: #79ffb8 !important;
+}
+
+.panelFoot {
+  margin: 0.9rem 0 0;
+  color: var(--hero-panel-foot);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.trustSection,
+.useCaseSection,
+.platformSection,
+.developerSection,
+.bottomCta {
+  margin-top: 1rem;
+}
+
+.trustSection,
+.useCaseSection,
+.platformSection,
+.developerSection {
+  border: 1px solid var(--stroke);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--section-shadow);
+  padding: 1.5rem 1.3rem;
+}
+
+.sectionEyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--eyebrow-text);
+}
+
+.logoRow {
+  margin-top: 0.88rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.logoPill {
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border-radius: 999px;
+  padding: 0.47rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--pill-text);
+  font-weight: 600;
+}
+
+.statsGrid {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.statCard {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--stat-bg);
+  padding: 0.95rem;
+}
+
+.statValue {
+  margin: 0;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.statLabel {
+  margin: 0.34rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.sectionTitle {
+  margin: 0.62rem 0 0;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.015em;
+}
+
+.useCaseGrid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.platformGrid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.useCaseCard,
+.platformCard {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  padding: 1.08rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.02rem;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+}
+
+.cardDescription {
+  margin: 0.62rem 0 0;
+  color: var(--muted);
+  line-height: 1.62;
+  font-size: 0.92rem;
+}
+
+.inlineLink {
+  display: inline-block;
+  margin-top: 0.72rem;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inlineLink:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.devCard {
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  background: var(--dev-bg);
+  padding: 1.2rem;
+}
+
+.codeBlock {
+  margin: 0.95rem 0 0;
+  border-radius: 14px;
+  border: 1px solid var(--code-border);
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 1.15rem;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.bottomCta {
+  margin-top: 1rem;
+  border: 1px solid var(--bottom-border);
+  border-radius: 24px;
+  background: var(--bottom-bg);
+  padding: 2rem 1.3rem;
+  text-align: center;
+}
+
+.bottomSubtitle {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--eyebrow-text);
+  font-weight: 700;
+}
+
+.bottomTitle {
+  margin: 0.7rem 0 0;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+}
+
+.bottomCta .heroActions {
+  justify-content: center;
+  margin-top: 1.15rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (max-width: 996px) {
+  .page {
+    padding: 0.9rem 0.8rem 3rem;
+  }
+
+  .heroSection {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    padding: 1.45rem 1.15rem;
+  }
+
+  .heroPanel {
+    padding: 1rem;
+  }
+
+  .statsGrid,
+  .useCaseGrid,
+  .platformGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement,
+  .trustSection,
+  .useCaseSection,
+  .platformSection,
+  .developerSection,
+  .bottomCta {
+    margin-top: 0.8rem;
+    border-radius: 18px;
+    padding: 1.1rem 0.9rem;
+  }
 }
