@@ -78,7 +78,7 @@ const config: Config = {
       title: 'Draco Payment',
       logo: {
         alt: 'Draco Payment Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {

@@ -214,7 +214,7 @@ await bridge.syncTransaction(tx.id);`}
 export default function Home(): ReactNode {
   return (
     <Layout
-      title="Draco Payment Bridge SDK"
+      title="Draco Payment"
       description="여러 크립토 결제 PG를 단일 SDK로 통합하는 결제 브릿지 솔루션">
       <main>
         <HomepageMain />
