@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkdraco_payment_bridge_web=globalThis.webpackChunkdraco_payment_bridge_web||[]).push([[1903],{1912(a){a.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"Blog","authorsListPath":"/blog/authors"}')}}]);
