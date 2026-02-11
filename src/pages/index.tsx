@@ -5,34 +5,7 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
-const trustLogos = ['Adobe', 'Intel', 'Atlassian', 'Notion', 'Canva', 'Unity'];
-
-const stats = [
-  {value: '40+', label: '지원 결제 네트워크'},
-  {value: '180+', label: '서비스 가능 국가'},
-  {value: '24/7', label: '실시간 이벤트 검증'},
-  {value: '99.99%', label: '트랜잭션 처리 가용성 목표'},
-];
-
 const whoItsFor = [
-  {
-    title: 'SaaS',
-    description:
-      '구독/업그레이드/다운그레이드 시나리오를 하나의 트랜잭션 모델로 단순화합니다.',
-    linkLabel: 'SaaS 시나리오 보기',
-  },
-  {
-    title: 'Gaming',
-    description:
-      '웹 결제와 인게임 결제 이벤트를 통합해 단일 정산 파이프라인으로 운영합니다.',
-    linkLabel: '게임 결제 흐름 보기',
-  },
-  {
-    title: 'Digital Products',
-    description:
-      '일회성 결제와 정기 결제를 같은 API로 처리해 운영 오버헤드를 줄입니다.',
-    linkLabel: '디지털 상품 사례 보기',
-  },
 ];
 
 const platformCapabilities = [
@@ -62,7 +35,7 @@ function HomepageMain() {
   return (
     <div className={styles.page}>
       <section className={styles.announcement}>
-        New: 멀티 PG 실시간 Failover 라우팅 베타 오픈
+        🚧 Our SDK is currently in development. We’re building a powerful toolkit to make integration faster and easier. Stay tuned for updates — exciting features are on the way.
       </section>
 
       <section className={styles.heroSection}>
@@ -81,54 +54,22 @@ function HomepageMain() {
             </Link>
           </div>
         </div>
-        <aside className={styles.heroPanel}>
-          <p className={styles.panelLabel}>Unified Transaction Snapshot</p>
-          <div className={styles.panelRow}>
-            <span>Provider</span>
-            <strong>Binance Pay</strong>
-          </div>
-          <div className={styles.panelRow}>
-            <span>Status</span>
-            <strong className={styles.statusOk}>Verified</strong>
-          </div>
-          <div className={styles.panelRow}>
-            <span>Amount</span>
-            <strong>125.00 USDT</strong>
-          </div>
-          <div className={styles.panelRow}>
-            <span>Order</span>
-            <strong>ORD-9012</strong>
-          </div>
-          <p className={styles.panelFoot}>
-            모든 Provider 이벤트가 동일한 스키마로 정규화됩니다.
-          </p>
-        </aside>
-      </section>
-
-      <section className={styles.trustSection}>
-        <p className={styles.sectionEyebrow}>Trusted by digital-first teams</p>
-        <div className={styles.logoRow}>
-          {trustLogos.map((name) => (
-            <span key={name} className={styles.logoPill}>
-              {name}
-            </span>
-          ))}
-        </div>
-        <div className={styles.statsGrid}>
-          {stats.map((item) => (
-            <article key={item.label} className={styles.statCard}>
-              <p className={styles.statValue}>{item.value}</p>
-              <p className={styles.statLabel}>{item.label}</p>
-            </article>
-          ))}
-        </div>
       </section>
 
       <section className={styles.useCaseSection}>
         <p className={styles.sectionEyebrow}>Who Draco serves</p>
         <Heading as="h2" className={styles.sectionTitle}>
-          제품군이 달라도 결제 운영은 하나의 표준으로
+          Developers and businesses building seamless payment experiences.
         </Heading>
+        <p className={styles.cardDescription}>
+          Draco Payment Bridge SDK is designed for teams that need fast, secure,
+          and scalable payment integration. Whether you&apos;re launching a fintech
+          product, scaling a platform, or expanding globally, SDK helps you
+          connect payment systems with confidence.
+        </p>
+        <Link to="/docs/intro" className={styles.inlineLink}>
+          Explore the integration guide
+        </Link>
         <div className={styles.useCaseGrid}>
           {whoItsFor.map((item) => (
             <article key={item.title} className={styles.useCaseCard}>
